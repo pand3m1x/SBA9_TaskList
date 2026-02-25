@@ -2,10 +2,12 @@ import TaskList from './components/TaskList/TaskList'
 import { useState } from 'react';
 import type { Task } from './types'
 import TaskFilter from './components/TaskFilter/TaskFilter'
+import type { TaskStatus } from './types'
 
 function TaskDashboard(){
 
 
+  //Mock tasks and task functions
   const mockTask1 : Task = {
     id: "1",
     title: "Mock",
@@ -36,12 +38,29 @@ function TaskDashboard(){
   const onDelete = (taskId : string) =>{
     console.log("deleted:", taskId);
   }
+
+    //Filtering 
+
+  const [statusFilter, setStatusFilter] = useState<TaskStatus | "all" >("all");
+  const filteredTasks = tasks.filter(task => {
+    if (statusFilter === "all") return true;
+    return task.status === statusFilter;
+  });
+
+  const handleFilterChange = (filters : {status?: TaskStatus}) => {
+    console.log("Clicked:", filters);
+    if (!filters.status) {
+      setStatusFilter("all");
+    } else {
+      setStatusFilter(filters.status)
+    }
+  };
   
   return(
     <div id="Dashboard" style={{border:"2px solid black", width:"600px"}}>
       <h2>Dashboard</h2>
-      <TaskFilter></TaskFilter>
-      <TaskList tasks={tasks} onStatusChange={()=>{}} onDelete={onDelete}></TaskList>
+      <TaskFilter onFilterChange={handleFilterChange}></TaskFilter>
+      <TaskList tasks={filteredTasks} onStatusChange={()=>{}} onDelete={onDelete}></TaskList>
     </div>
   );
 }
@@ -60,3 +79,13 @@ export default TaskDashboard
 //   onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
 //   onDelete: (taskId: string) => void;
 // }
+
+//  const filteredTasks = tasks.filter(task => {
+//     if (statusFilter === "all") return true;
+//     return task.status === statusFilter;
+// <div id="filterBtns">
+//   <button className = "filter" id = "all" onClick = {() => setStatusFilter("all")}>All</button>
+//   <button className = "filter" id = "pending" onClick = {() => setStatusFilter("pending")}>Pending</button>
+//   <button className = "filter" id = "inProgress" onClick = {() => setStatusFilter("in-progress")}>In-Progress</button>
+//   <button className = "filter" id = "completed" onClick = {() => setStatusFilter("completed")}>Completed</button>
+// </div>
