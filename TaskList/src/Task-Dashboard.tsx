@@ -43,6 +43,7 @@ function TaskDashboard(){
 
   const onDelete = (taskId : string) =>{
     console.log("deleted:", taskId);
+    setTasks(prev => prev.filter(task => task.id !== taskId));
   }
 
     //Filtering 
