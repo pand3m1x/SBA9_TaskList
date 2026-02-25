@@ -1,5 +1,14 @@
 // TaskList
 
+// Define TypeScript interfaces for:
+
+// Task data structure []
+// Component props []
+// Form data []
+// Filter options []
+ 
+//data structure 
+
 export type TaskStatus = 'pending' | 'in-progress' | 'completed';
  
 export interface Task {

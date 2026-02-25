@@ -1,4 +1,24 @@
+import type { TaskItemProps, TaskStatus } from '../../types/index';
 
+
+function TaskItem({ task, onStatusChange, onDelete}:TaskItemProps){
+
+  return(
+    <li style={{border:"2px solid blue"}}>
+      <p className="taskItem">{task.title}</p>
+      <p className="taskItem">{task.description}</p>
+      <p className="taskItem">{task.dueDate}</p>
+      <select value={task.status} onChange={(e) => onStatusChange(task.id,e.target.value as TaskStatus)}>
+        <option value="pending">Pending</option>
+        <option value="in-progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+      <button onClick={() => onDelete(task.id)}>Delete</button>
+    </li>
+  );
+}
+
+export default TaskItem
 
 //  id: string;
 //   title: string;
@@ -7,21 +27,3 @@
 //   priority: 'low' | 'medium' | 'high';
 //   dueDate: string;
 //
-function TaskItem(){
-
-  return(
-    <li style={{border:"2px solid blue"}}>
-      <p className="taskItem">task title</p>
-      <p className="taskItem">description</p>
-      <p className="taskItem">due</p>
-      <select>
-        <option>Pending</option>
-        <option>In Progress</option>
-        <option>Completed</option>
-      </select>
-      <button>Delete</button>
-    </li>
-  )
-}
-
-export default TaskItem
