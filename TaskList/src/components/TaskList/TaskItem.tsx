@@ -5,7 +5,7 @@ function TaskItem({ task, onStatusChange, onDelete}:TaskItemProps){
 
   return(
     <li style={{border:"2px solid blue"}}>
-      <p className="taskItem">{task.title}</p>
+      <h4 className="taskItem">{task.title}</h4>
       <p className="taskItem">{task.description}</p>
       <p className="taskItem">{task.dueDate}</p>
       <select value={task.status} onChange={(e) => onStatusChange(task.id,e.target.value as TaskStatus)}>
