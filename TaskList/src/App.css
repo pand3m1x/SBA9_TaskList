@@ -10,6 +10,11 @@ li .taskItem{
   width: 650px;
 }
 
+#filterBtns {
+  display: flex;
+  gap: 20px;
+  width: 60px;
+}
 /* #Dashboard {
   display: flex;
 } */

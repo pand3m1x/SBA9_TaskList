@@ -1,6 +1,7 @@
 import TaskList from './components/TaskList/TaskList'
 import { useState } from 'react';
 import type { Task } from './types'
+import TaskFilter from './components/TaskFilter/TaskFilter'
 
 function TaskDashboard(){
 
@@ -38,6 +39,8 @@ function TaskDashboard(){
   
   return(
     <div id="Dashboard" style={{border:"2px solid black", width:"600px"}}>
+      <h2>Dashboard</h2>
+      <TaskFilter></TaskFilter>
       <TaskList tasks={tasks} onStatusChange={()=>{}} onDelete={onDelete}></TaskList>
     </div>
   );
