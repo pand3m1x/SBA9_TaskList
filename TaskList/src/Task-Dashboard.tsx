@@ -1,7 +1,9 @@
 import TaskItem from './components/TaskList/TaskItem'
+import { useState } from 'react';
 import type { Task, TaskStatus } from './types'
 
 function TaskDashboard(){
+
 
   const mockTask : Task ={
     id: "1",
@@ -12,13 +14,15 @@ function TaskDashboard(){
     dueDate: "2026-25-02",
   }
 
-  const deleteTask = (taskId : string) =>{
+  const [tasks] = useState<Task[]>([mockTask]);
+
+  const onDelete = (taskId : string) =>{
     console.log("deleted:", taskId);
   }
   
   return(
     <div style={{border:"2px solid black", width:"600px"}}>
-      <TaskItem task={mockTask} onStatusChange={()=>{}} onDelete={deleteTask}></TaskItem>
+      <TaskItem task={mockTask} onStatusChange={()=>{}} onDelete={onDelete}></TaskItem>
     </div>
   );
 }
