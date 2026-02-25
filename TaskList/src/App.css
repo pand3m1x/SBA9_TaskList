@@ -1,3 +1,10 @@
+li {
+  display:flex;
+}
+li .taskItem{
+  margin: 5px;
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;

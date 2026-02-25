@@ -3,7 +3,9 @@ import TaskItem from './components/TaskList/TaskItem'
 
 function TaskDashboard(){
   return(
-    <TaskItem></TaskItem>
+    <div style={{border:"2px solid black"}}>
+      <TaskItem></TaskItem>
+    </div>
   )
 }
 
