@@ -3,6 +3,7 @@ import { useState } from 'react';
 import type { Task } from './types'
 import TaskFilter from './components/TaskFilter/TaskFilter'
 import type { TaskStatus } from './types'
+import TaskForm from './components/TaskForm/TaskForm'
 
 function TaskDashboard(){
 
@@ -33,7 +34,12 @@ function TaskDashboard(){
     dueDate: "2026-05-02",
   }
 
-  const [tasks] = useState<Task[]>([mockTask1, mockTask2, mockTask3]);
+  const [tasks,setTasks] = useState<Task[]>([mockTask1, mockTask2, mockTask3]);
+
+  const handleAddTask = (newTask : Task) => {
+    console.log("Added:", newTask)
+    setTasks(prev => [...prev, newTask]);
+  }
 
   const onDelete = (taskId : string) =>{
     console.log("deleted:", taskId);
@@ -59,6 +65,7 @@ function TaskDashboard(){
   return(
     <div id="Dashboard" style={{border:"2px solid black", width:"600px"}}>
       <h2>Dashboard</h2>
+      <TaskForm onAddTask={handleAddTask}></TaskForm>
       <TaskFilter onFilterChange={handleFilterChange}></TaskFilter>
       <TaskList tasks={filteredTasks} onStatusChange={()=>{}} onDelete={onDelete}></TaskList>
     </div>

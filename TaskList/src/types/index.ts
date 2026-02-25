@@ -2,10 +2,10 @@
 
 // Define TypeScript interfaces for:
 
-// Task data structure []
+// Task data structure [x]
 // Component props []
 // Form data []
-// Filter options []
+// Filter options [x]
  
 //data structure 
 
@@ -41,4 +41,8 @@ export interface TaskFilterProps {
     status?: TaskStatus;
     priority?: 'low' | 'medium' | 'high';
   }) => void;
+}
+
+export interface TaskFormProps {
+  onAddTask:(task : Task ) => void;
 }

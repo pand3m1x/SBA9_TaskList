@@ -3,7 +3,7 @@ import type { TaskFilterProps } from "../../types";
 function TaskFilter({ onFilterChange } : TaskFilterProps){
   
   return(
-    <>
+    <div style={{border:"2px solid pink"}}>
       <h3>Filter</h3>
         <div id="filterBtns">
           <button className = "filter" id = "all" onClick = {() => onFilterChange({ status : undefined })}>All</button>
@@ -11,7 +11,7 @@ function TaskFilter({ onFilterChange } : TaskFilterProps){
           <button className = "filter" id = "inProgress" onClick = {() => onFilterChange({ status : "in-progress" })}>In-Progress</button>
           <button className = "filter" id = "completed" onClick = {() => onFilterChange({ status : "completed" })}>Completed</button>
         </div>
-    </>
+    </div>
   );
 }
 
@@ -34,3 +34,7 @@ export default TaskFilter
     //   <button className="filter" id="inProgress">In-Progress</button>
     //   <button className="filter" id="completed">Completed</button>
     // </div>
+
+// Implement filtering by status and priority [Status x Priority /]
+// Add search functionality [] This isn't a Dashboard function?
+// Show active filter indicators [] 

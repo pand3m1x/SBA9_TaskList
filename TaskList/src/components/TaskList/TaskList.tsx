@@ -23,3 +23,10 @@ export default TaskList
 //   onStatusChange: (taskId: string, newStatus: TaskStatus) => void;
 //   onDelete: (taskId: string) => void;
 // }
+
+// Implement list rendering with proper key management [x]
+// Handle task status updates []
+// Implement task addition [x]
+// Implement task deletion [x]
+// Add sorting functionality [x] // isn't this in the Dashboard?
+// Add a search bar to search for tasks []

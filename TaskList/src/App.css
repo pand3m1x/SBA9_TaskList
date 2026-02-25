@@ -1,3 +1,8 @@
+*{
+  padding:5px;
+  margin: 2px;
+}
+
 li {
   display:flex;
   justify-content: space-around;
@@ -13,7 +18,12 @@ li .taskItem{
 #filterBtns {
   display: flex;
   gap: 20px;
-  width: 60px;
+  padding:2px;
+}
+
+#taskInput{
+  margin-bottom: 0;
+  gap: 5px;
 }
 /* #Dashboard {
   display: flex;
