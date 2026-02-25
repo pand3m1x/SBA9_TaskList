@@ -63,12 +63,16 @@ function TaskDashboard(){
     }
   };
   
+  const handleStatusChange = (taskId: string, newStatus: TaskStatus) => {
+    setTasks(prev => prev.map(task => task.id === taskId ? {...task, status: newStatus} : task));
+  };
+
   return(
     <div id="Dashboard" style={{border:"2px solid black", width:"600px"}}>
       <h2>Dashboard</h2>
       <TaskForm onAddTask={handleAddTask}></TaskForm>
       <TaskFilter onFilterChange={handleFilterChange}></TaskFilter>
-      <TaskList tasks={filteredTasks} onStatusChange={()=>{}} onDelete={onDelete}></TaskList>
+      <TaskList tasks={filteredTasks} onStatusChange={handleStatusChange} onDelete={onDelete}></TaskList>
     </div>
   );
 }
